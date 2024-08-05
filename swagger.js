@@ -1,29 +1,25 @@
 const swaggerJSDoc = require('swagger-jsdoc');
 
-const swaggerDefinition = {
+const options = {
+  definition: {
     openapi: '3.0.0',
     info: {
-        title: 'MyAPI',
-        version: '1.0.0',
-        description: 'Documentacion de API Proyecto 1 Electiva II',
-        contact: {
-            name: 'Jose Daniel Rivas Soraca',
-            url: 'https://github.com/DanielRivas18',
-            email: 'jose.rivas@uptc.edu.co'
-        }
-      
+      title: 'Veterinary Clinic API',
+      version: '1.0.0',
+      description: 'API documentation for the Veterinary Clinic system',
     },
     servers: [
-        {
-            url: 'https://taller-2-danielrivas18s-projects.vercel.app/api/products',
-            description: 'Servidor de desarrollo'
-        }
-    ]
+      {
+        url1: 'http://localhost:3000/api',
+        description1: 'Local server',
+        url: 'http://localhost:3000/api',
+        description: 'Local server 3',
+      },
+    ],
+  },
+  apis: ['./routes/*.js'], 
 };
 
-const options = {
-    swaggerDefinition,
-    apis:['./routes/*.js'],
-    }
-    const swaggerSpec = swaggerJSDoc(options)
-    module.exports = swaggerSpec
+const swaggerSpec = swaggerJSDoc(options);
+
+module.exports = swaggerSpec;
