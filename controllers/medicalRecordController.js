@@ -1,4 +1,4 @@
-const MedicalRecord = require('./../models/medicalRecord');
+const MedicalRecord = require('../models/medicalRecord');
 
 // Obtener todos los registros médicos
 exports.getAllMedicalRecords = async (req, res) => {
@@ -18,6 +18,17 @@ exports.getMedicalRecordById = async (req, res) => {
     res.json(medicalRecord);
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+// Crear un nuevo registro médico
+exports.createMedicalRecord = async (req, res) => {
+  try {
+    const medicalRecord = new MedicalRecord(req.body);
+    await medicalRecord.save();
+    res.status(201).json(medicalRecord);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
   }
 };
 

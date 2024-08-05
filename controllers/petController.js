@@ -21,6 +21,17 @@ exports.getPetById = async (req, res) => {
   }
 };
 
+// Crear una nueva mascota
+exports.createPet = async (req, res) => {
+  try {
+    const pet = new Pet(req.body);
+    await pet.save();
+    res.status(201).json(pet);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
 // Actualizar una mascota por ID
 exports.updatePet = async (req, res) => {
   try {

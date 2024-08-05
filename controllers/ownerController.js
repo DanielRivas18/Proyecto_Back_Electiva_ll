@@ -21,6 +21,17 @@ exports.getOwnerById = async (req, res) => {
   }
 };
 
+// Crear un nuevo dueño
+exports.createOwner = async (req, res) => {
+  try {
+    const owner = new Owner(req.body);
+    await owner.save();
+    res.status(201).json(owner);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
 // Actualizar un dueño por ID
 exports.updateOwner = async (req, res) => {
   try {
