@@ -10,9 +10,8 @@ const options = {
     },
     servers: [
       {
-        url1: 'http://localhost:3000/api',
-        description1: 'Local server',
-        url: 'http://localhost:3000/api',
+        
+        url: 'https://proyecto-back-electiva-ll.onrender.com/api',
         description: 'Local server 3',
       },
     ],
