@@ -20,3 +20,29 @@ Este proyecto es una API desarrollada con Express y Mongoose para el curso de El
    ```bash
    git clone https://github.com/tu-usuario/proyecto-back-electiva-ll.git
    cd proyecto-back-electiva-ll
+
+2. Instala las dependencias:
+
+   ```bash
+   npm install
+
+3. Configura las variables de entorno:
+
+   - Crea un archivo .env en la raíz del proyecto y define las siguientes variables:
+
+    ```bash
+   MONGO_URI=tu_uri_de_mongodb
+   PORT=puerto_del_servidor (por defecto 3000)
+
+## Ejecución
+
+- Para iniciar el servidor en modo desarrollo:
+
+    ```bash
+   npm run dev
+
+ - Para iniciar el servidor en modo producción:
+
+    ```bash
+   npm start
+
