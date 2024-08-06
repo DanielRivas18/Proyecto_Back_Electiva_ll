@@ -12,7 +12,7 @@ const options = {
       {
         
         url: 'https://proyecto-back-electiva-ll.onrender.com/api',
-        description: 'Local server 3',
+        description: 'Local server 1',
       },
     ],
   },
