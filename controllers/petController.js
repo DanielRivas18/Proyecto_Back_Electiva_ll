@@ -47,3 +47,14 @@ exports.updatePet = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// Eliminar una mascota por ID
+exports.deletePet = async (req, res) => {
+  try {
+    const pet = await Pet.findByIdAndDelete(req.params.id);
+    if (!pet) return res.status(404).json({ message: 'Pet not found' });
+    res.json({ message: 'Pet deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

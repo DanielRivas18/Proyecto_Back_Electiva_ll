@@ -146,4 +146,35 @@ router.post('/', medicalRecordController.createMedicalRecord);
  */
 router.put('/:id', medicalRecordController.updateMedicalRecord);
 
+/**
+ * @swagger
+ * /medicalRecords/{id}:
+ *   delete:
+ *     summary: Delete a medical record by the id
+ *     tags: [MedicalRecords]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The medical record id
+ *     responses:
+ *       200:
+ *         description: The medical record was successfully deleted
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: MedicalRecord deleted successfully
+ *       404:
+ *         description: The medical record was not found
+ *       500:
+ *         description: Some error happened
+ */
+router.delete('/:id', medicalRecordController.deleteMedicalRecord);
+
 module.exports = router;

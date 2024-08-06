@@ -149,4 +149,35 @@ router.post('/', ownerController.createOwner);
  */
 router.put('/:id', ownerController.updateOwner);
 
+/**
+ * @swagger
+ * /owners/{id}:
+ *   delete:
+ *     summary: Delete an owner by the id
+ *     tags: [Owners]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The owner id
+ *     responses:
+ *       200:
+ *         description: The owner was successfully deleted
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Owner deleted successfully
+ *       404:
+ *         description: The owner was not found
+ *       500:
+ *         description: Some error happened
+ */
+router.delete('/:id', ownerController.deleteOwner);
+
 module.exports = router;

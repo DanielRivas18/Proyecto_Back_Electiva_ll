@@ -47,3 +47,14 @@ exports.updateMedicalRecord = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// Eliminar un registro médico por ID
+exports.deleteMedicalRecord = async (req, res) => {
+  try {
+    const medicalRecord = await MedicalRecord.findByIdAndDelete(req.params.id);
+    if (!medicalRecord) return res.status(404).json({ message: 'MedicalRecord not found' });
+    res.json({ message: 'MedicalRecord deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

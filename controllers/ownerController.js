@@ -47,3 +47,15 @@ exports.updateOwner = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// Eliminar un dueño por ID
+exports.deleteOwner = async (req, res) => {
+  try {
+    const owner = await Owner.findByIdAndDelete(req.params.id);
+    if (!owner) return res.status(404).json({ message: 'Owner not found' });
+    res.json({ message: 'Owner deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+

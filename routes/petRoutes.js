@@ -155,4 +155,35 @@ router.post('/', petController.createPet);
  */
 router.put('/:id', petController.updatePet);
 
+/**
+ * @swagger
+ * /pets/{id}:
+ *   delete:
+ *     summary: Delete a pet by the id
+ *     tags: [Pets]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The pet id
+ *     responses:
+ *       200:
+ *         description: The pet was successfully deleted
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Pet deleted successfully
+ *       404:
+ *         description: The pet was not found
+ *       500:
+ *         description: Some error happened
+ */
+router.delete('/:id', petController.deletePet);
+
 module.exports = router;
